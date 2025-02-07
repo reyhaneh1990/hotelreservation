@@ -9,12 +9,16 @@ import lombok.Setter;
 
 @Setter
 @Getter
+/* تمام موجودیت ها باید انوتیشن Entity داشته باشند*/
 @Table(name = "customer")
-public class Customers {
+public class Customers /* مسايل مربوط به سریالابزبل قبلا گفته شد*/ {
     @Id
+    /* تولید اتوماتیک مقدار برای آی دی فراموش شده*/
     private long id;
     private String name;
-    private String Email;
-    private String Phone;
-    private String Address;
+    private String email; /* حرف اول فیلدها باید کوچک باشد*/
+    private String phone; /* حرف اول فیلدها باید کوچک باشد*/
+    private String address; /* حرف اول فیلدها باید کوچک باشد*/
+
+    /* استفاده درست از اینتر زدن قبلا گفته شد */
 }
