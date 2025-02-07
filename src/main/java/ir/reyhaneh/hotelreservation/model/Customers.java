@@ -1,24 +1,33 @@
 package ir.reyhaneh.hotelreservation.model;
 
 
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
+import java.util.List;
 //هدف: ذخیره اطلعات مربوط به مشتریانی که از هتل استفاده میکنند.
 
 @Setter
 @Getter
-/* تمام موجودیت ها باید انوتیشن Entity داشته باشند*/
+@Entity
 @Table(name = "customer")
-public class Customers /* مسايل مربوط به سریالابزبل قبلا گفته شد*/ {
+public class Customers implements Serializable {
     @Id
-    /* تولید اتوماتیک مقدار برای آی دی فراموش شده*/
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
-    private String email; /* حرف اول فیلدها باید کوچک باشد*/
-    private String phone; /* حرف اول فیلدها باید کوچک باشد*/
-    private String address; /* حرف اول فیلدها باید کوچک باشد*/
 
-    /* استفاده درست از اینتر زدن قبلا گفته شد */
+    private String name;
+
+    private String email;
+
+    private String phone;
+
+    private String address;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Bookings> bookings;
+
+
 }

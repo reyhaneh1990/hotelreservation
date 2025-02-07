@@ -12,8 +12,8 @@
     <artifactId>hotel-reservation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>HotelReservation</name>
-    <description>HotelReservation</description>
+    <name>hotelReservation</name>
+    <description>hotelReservation</description>
     <properties>
         <java.version>17</java.version>
     </properties>

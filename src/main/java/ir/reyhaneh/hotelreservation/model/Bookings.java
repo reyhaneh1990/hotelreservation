@@ -1,24 +1,40 @@
 package ir.reyhaneh.hotelreservation.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-//هدف: مدیریت اطلعات رزروهای انجامشده توسط مشتریان.
+//هدف: مدیریت اطلعات رزروهای انجام شده توسط مشتریان.
 @Getter
 @Setter
 @Entity
 @Table(name = "bookings")
-public class Bookings /* مسايل مربوط به سریالابزبل قبلا گفته شد*/ {
-    private long id; /* موارد مربوط به آی دی قبلا در فایل دیگری گفته شد */
-    private long customerId; /* آی دی جداول دیگه رو به صورت فیلد نمی سازیم. میذاریم خود هایبرنیت برامون بسازه پس این خط باید حذف بشه */
-    private long roomId; /* آی دی جداول دیگه رو به صورت فیلد نمی سازیم. میذاریم خود هایبرنیت برامون بسازه پس این خط باید حذف بشه */
-    private Date bookingDate; /* تاریخ ها رو یا باید از نوع Date بگیریم یا از نوع String */
-    private Date checkInDate; /* تاریخ ها رو یا باید از نوع Date بگیریم یا از نوع String */
-    private Date checkOutDate; /* تاریخ ها رو یا باید از نوع Date بگیریم یا از نوع String */
+public class Bookings implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-/* استفاده درست از اینتر زدن قبلا گفته شد */
+    private Date bookingDate;
+
+    private Date checkInDate;
+
+    private Date checkOutDate;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "payment_id")
+    private Payments payments;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "Booking_AdditionalService")
+    private List<AdditionalService> additionalServices;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Customers customers;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Rooms rooms;
 }
