@@ -18,9 +18,9 @@ import java.util.Date;
 public class Payments implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
-    private long amount;
+    private Long amount;
 
     private Date paymentDate;
 

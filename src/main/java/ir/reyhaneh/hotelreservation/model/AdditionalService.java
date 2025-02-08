@@ -16,11 +16,11 @@ public class AdditionalService implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     private String name;
 
-    private long price;
+    private Long price;
 
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Bookings> bookings;

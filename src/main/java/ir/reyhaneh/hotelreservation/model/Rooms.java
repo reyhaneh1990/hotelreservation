@@ -21,13 +21,13 @@ public class Rooms implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     private RoomType type;
 
     private RoomStatus status;
 
-    private long price;
+    private Long price;
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Bookings> bookings;
