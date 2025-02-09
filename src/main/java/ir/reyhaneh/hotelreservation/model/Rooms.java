@@ -29,4 +29,10 @@ public class Rooms implements Serializable {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Bookings> bookings;
 
+    public Rooms(Long id, String type, String status, long price) {
+        this.id = id;
+        this.type = type;
+        this.status = status;
+        this.price = price;
+    }
 }
