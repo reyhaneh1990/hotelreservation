@@ -5,7 +5,6 @@ import ir.reyhaneh.hotelreservation.enums.RoomType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.io.Serializable;
 import java.util.List;

@@ -4,8 +4,6 @@ import ir.reyhaneh.hotelreservation.enums.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,6 +14,7 @@ import java.util.Date;
 @Entity
 @Table(name = "payments")
 public class Payments implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

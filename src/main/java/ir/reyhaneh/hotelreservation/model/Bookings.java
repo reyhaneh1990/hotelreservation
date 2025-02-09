@@ -33,8 +33,10 @@ public class Bookings implements Serializable {
     private List<AdditionalService> additionalServices;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
     private Customers customers;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "room_id")
     private Rooms rooms;
 }
