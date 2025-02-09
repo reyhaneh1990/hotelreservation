@@ -29,5 +29,11 @@ public class Customers implements Serializable {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Bookings> bookings;
 
-
+    public Customers(Long id, String name, String email, String phone, String address) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+    }
 }
