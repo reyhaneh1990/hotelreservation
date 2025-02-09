@@ -1,7 +1,5 @@
 package ir.reyhaneh.hotelreservation.model;
 
-import ir.reyhaneh.hotelreservation.enums.RoomStatus;
-import ir.reyhaneh.hotelreservation.enums.RoomType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,9 +20,9 @@ public class Rooms implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    private RoomType type;
+    private String type;
 
-    private RoomStatus status;
+    private String status;
 
     private Long price;
 

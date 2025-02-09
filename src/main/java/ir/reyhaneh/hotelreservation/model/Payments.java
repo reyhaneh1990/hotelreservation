@@ -1,6 +1,5 @@
 package ir.reyhaneh.hotelreservation.model;
 
-import ir.reyhaneh.hotelreservation.enums.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +22,7 @@ public class Payments implements Serializable {
 
     private Date paymentDate;
 
-    private PaymentMethod paymentMethod;
+    private String paymentMethod;
 
     @OneToOne(fetch = FetchType.LAZY)
     private Bookings bookings;
