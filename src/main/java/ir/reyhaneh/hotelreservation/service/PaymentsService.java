@@ -15,10 +15,6 @@ public interface PaymentsService {
 
     void updatePayments(Long id, Long amount, Date paymentDate, String paymentMethod);
 
-    void savePayments(Long id, Long amount, Date paymentDate, String paymentMethod);
-
-    void updatepayments(Long id, Long amount, Date paymentDate, String paymentMethod);
-
     void deletePayments(Long id);
 
 }

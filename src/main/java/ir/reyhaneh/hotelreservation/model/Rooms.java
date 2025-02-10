@@ -33,15 +33,10 @@ public class Rooms implements Serializable {
     public Rooms() {
     }
 
-    public Rooms(Long id, String type, String status, long price) {
+    public Rooms(Long id, String type, String status, Long price) {
         this.id = id;
         this.type = type;
         this.status = status;
         this.price = price;
-
-
-
-
-
     }
 }

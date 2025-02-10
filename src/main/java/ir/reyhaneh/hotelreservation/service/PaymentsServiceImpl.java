@@ -35,16 +35,6 @@ public class PaymentsServiceImpl implements PaymentsService {
 
     @Override
     public void savePayments(Long amount, Date paymentDate, String paymentMethod) {
-
-    }
-
-    @Override
-    public void updatePayments(Long id, Long amount, Date paymentDate, String paymentMethod) {
-
-    }
-
-    @Override
-    public void savePayments(Long id, Long amount, Date paymentDate, String paymentMethod) {
         if (paymentMethod.isEmpty()) {
             throw new ValidationException("Type is empty");
         }
@@ -53,7 +43,7 @@ public class PaymentsServiceImpl implements PaymentsService {
     }
 
     @Override
-    public void updatepayments(Long id, Long amount, Date paymentDate, String paymentMethod) {
+    public void updatePayments(Long id, Long amount, Date paymentDate, String paymentMethod) {
         if (id == null) {
             throw new ValidationException("id is null");
         }

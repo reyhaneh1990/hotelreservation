@@ -1,6 +1,5 @@
 package ir.reyhaneh.hotelreservation.repository;
 
-import ir.reyhaneh.hotelreservation.model.Customers;
 import ir.reyhaneh.hotelreservation.model.Rooms;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +40,12 @@ public class RoomRepository {
 
     @Transactional
     public void editRoom(Long id,String type, String status,Long price) {
-        String sql = "INSERT INTO room (id,type, status, price) VALUES (?, ?, ?)";
+        String sql = "UPDATE room SET type = ?, status = ?, price = ? WHERE id=?";
         jdbcTemplate.update(sql,
-                id,
                 type,
                 status,
-                price);
+                price,
+                id);
     }
 
     @Transactional

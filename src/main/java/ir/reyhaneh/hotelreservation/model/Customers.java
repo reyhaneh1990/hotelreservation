@@ -36,4 +36,7 @@ public class Customers implements Serializable {
         this.phone = phone;
         this.address = address;
     }
+
+    public Customers() {
+    }
 }

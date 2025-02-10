@@ -24,4 +24,13 @@ public class AdditionalService implements Serializable {
 
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Bookings> bookings;
+
+    public AdditionalService(Long id, String name, Long price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public AdditionalService() {
+    }
 }

@@ -25,12 +25,12 @@ public class PaymentsController {
         return paymentsService.getPaymentsById(id);
     }
 
-    @PostMapping("{ amount}/{ paymentDate}/{paymentMethod}")
+    @PostMapping("{amount}/{paymentDate}/{paymentMethod}")
     public void savePayments(@PathVariable Long amount, @PathVariable Date paymentDate, @PathVariable String paymentMethod) {
         paymentsService.savePayments(amount, paymentDate, paymentMethod);
     }
 
-    @PutMapping("{id}/{ amount}/{ paymentDate}/{paymentMethod}")
+    @PutMapping("{id}/{amount}/{paymentDate}/{paymentMethod}")
     public void updatePayments(@PathVariable Long id, @PathVariable Long amount, @PathVariable Date paymentDate, @PathVariable String paymentMethod) {
         paymentsService.updatePayments(id, amount, paymentDate, paymentMethod);
     }

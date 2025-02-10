@@ -31,7 +31,7 @@ public class PaymentsRepository {
 
     @Transactional
     public void addPayments(Long amount, Date paymentDate, String paymentMethod) {
-        String sql = "INSERT INTO Payments (amount, paymentDate,paymentMethod) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO payments (amount, paymentDate,paymentMethod) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql,
                 amount,
                 paymentDate,
@@ -40,29 +40,29 @@ public class PaymentsRepository {
 
     @Transactional
     public void editPayments(Long id, Long amount, Date paymentDate, String paymentMethod) {
-        String sql = "INSERT INTO room (id,amount, paymentDate,paymentMethod) VALUES (?, ?, ?)";
+        String sql = "UPDATE payments SET amount=?, paymentDate = ?,paymentMethod = ? WHERE id=?";
         jdbcTemplate.update(sql,
-                id,
                 amount,
                 paymentDate,
-                paymentMethod);
+                paymentMethod,
+                id);
     }
 
     @Transactional
     public void deletePayments(Long id) {
-        String sql = "DELETE from room WHERE id=?";
+        String sql = "DELETE from payments WHERE id=?";
         jdbcTemplate.update(sql,
                 id);
     }
 
     @Transactional
     public Payments getPayments(Long id) {
-        String sql = "SELECT * FROM Payments WHERE id = ?";
+        String sql = "SELECT * FROM payments WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, paymentsRowMapper, id);
     }
 
     public List<Payments> getAllPayments() {
-        String sql = "SELECT * FROM Payments";
+        String sql = "SELECT * FROM payments";
         return jdbcTemplate.query(sql, paymentsRowMapper);
     }
 

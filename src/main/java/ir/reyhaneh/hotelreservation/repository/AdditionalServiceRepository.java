@@ -18,9 +18,6 @@ public class AdditionalServiceRepository {
         jdbcTemplate.update(sql,
                 additionalService.getName(),
                 additionalService.getPrice());
-
-
-
     }
 
 }

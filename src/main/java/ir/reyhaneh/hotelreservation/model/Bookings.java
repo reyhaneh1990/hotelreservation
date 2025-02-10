@@ -39,4 +39,14 @@ public class Bookings implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "room_id")
     private Rooms rooms;
+
+    public Bookings(Long id, Date bookingDate, Date checkInDate, Date checkOutDate) {
+        this.id = id;
+        this.bookingDate = bookingDate;
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
+    }
+
+    public Bookings() {
+    }
 }
