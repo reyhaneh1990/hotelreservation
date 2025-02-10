@@ -3,9 +3,11 @@ package ir.reyhaneh.hotelreservation.controller;
 import ir.reyhaneh.hotelreservation.model.Payments;
 import ir.reyhaneh.hotelreservation.service.PaymentsService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -24,21 +26,5 @@ public class PaymentsController {
     public Payments getPaymentsById(@PathVariable Long id) {
         return paymentsService.getPaymentsById(id);
     }
-
-    @PostMapping("{amount}/{paymentDate}/{paymentMethod}")
-    public void savePayments(@PathVariable Long amount, @PathVariable Date paymentDate, @PathVariable String paymentMethod) {
-        paymentsService.savePayments(amount, paymentDate, paymentMethod);
-    }
-
-    @PutMapping("{id}/{amount}/{paymentDate}/{paymentMethod}")
-    public void updatePayments(@PathVariable Long id, @PathVariable Long amount, @PathVariable Date paymentDate, @PathVariable String paymentMethod) {
-        paymentsService.updatePayments(id, amount, paymentDate, paymentMethod);
-    }
-
-    @DeleteMapping("{id}")
-    public void deletePayments(@PathVariable Long id) {
-        paymentsService.deletePayments(id);
-    }
-
 
 }

@@ -12,14 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class RoomServiceImpl implements RoomService {
 
-//    @Autowired
-//    private CustomerRepository CustomerRepository;
-
     private final RoomRepository roomRepository;
-
-//    public CustomerServiceImpl(CustomerRepository customerRepository) {
-//        this.customerRepository = customerRepository;
-//    }
 
     @Override
     public List<Rooms> getAllRooms() {
