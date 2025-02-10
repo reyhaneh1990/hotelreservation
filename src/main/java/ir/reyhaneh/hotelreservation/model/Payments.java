@@ -26,4 +26,7 @@ public class Payments implements Serializable {
 
     @OneToOne(fetch = FetchType.LAZY)
     private Bookings bookings;
+
+    public Payments(long id, long amount, java.sql.Date paymentDate, String paymentMethod) {
+    }
 }

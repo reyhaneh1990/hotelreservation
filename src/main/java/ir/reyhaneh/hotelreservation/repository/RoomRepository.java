@@ -40,9 +40,10 @@ public class RoomRepository {
     }
 
     @Transactional
-    public void editRoom(String type, String status,Long price) {
-        String sql = "INSERT INTO room (type, status, price) VALUES (?, ?, ?)";
+    public void editRoom(Long id,String type, String status,Long price) {
+        String sql = "INSERT INTO room (id,type, status, price) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql,
+                id,
                 type,
                 status,
                 price);

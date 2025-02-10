@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RoomService {
 
-    List<Customers> getAllRooms();
+    List<Rooms> getAllRooms();
 
     Rooms getRoomById(Long id);
 

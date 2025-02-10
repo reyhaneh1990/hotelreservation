@@ -10,13 +10,13 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping(name = "/customer/")
+@RequestMapping(name = "/room/")
 public class RoomController {
 
     private final RoomService roomService;
 
     @GetMapping
-    public List<Customers> getAllRoom() {
+    public List<Rooms> getAllRoom() {
         return roomService.getAllRooms();
     }
 
@@ -30,13 +30,13 @@ public class RoomController {
         roomService.saveRoom(type, status, price);
     }
 
-    @PutMapping("{id}/{name}/{email}/{phone}/{address}")
-    public void updateCustomer(@PathVariable Long id, @PathVariable String type, @PathVariable String status, @PathVariable Long price) {
+    @PutMapping("{id}/{type}/{status}/{price}/")
+    public void updateRoom(@PathVariable Long id, @PathVariable String type, @PathVariable String status, @PathVariable Long price) {
         roomService.updateRoom(id, type, status, price);
     }
 
     @DeleteMapping("{id}")
-    public void deleteCustomer(@PathVariable Long id) {
+    public void deleteRoom(@PathVariable Long id) {
         roomService.deleteRoom(id);
     }
 

@@ -16,7 +16,7 @@ import java.util.List;
 public class Rooms implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -29,10 +29,19 @@ public class Rooms implements Serializable {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Bookings> bookings;
 
+
+    public Rooms() {
+    }
+
     public Rooms(Long id, String type, String status, long price) {
         this.id = id;
         this.type = type;
         this.status = status;
         this.price = price;
+
+
+
+
+
     }
 }
