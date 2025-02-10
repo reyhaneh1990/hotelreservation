@@ -30,12 +30,15 @@ public class BookingRepository {
     private JdbcTemplate jdbcTemplate;
 
     @Transactional
-    public void addBookings(Date bookingDate, Date checkInDate, Date checkOutDate) {
-        String sql = "INSERT INTO booking (bookingDate,checkInDate,checkOutDate) VALUES (?, ?, ?, ?)";
+    public void addBookings(Date bookingDate, Date checkInDate, Date checkOutDate, Long customerId, Long roomId, Long paymentId) {
+        String sql = "INSERT INTO booking (bookingDate,checkInDate,checkOutDate,customer_id,room_id,payment_id) VALUES (?, ?, ?, ?,?,?)";
         jdbcTemplate.update(sql,
                 bookingDate,
                 checkInDate,
-                checkOutDate);
+                checkOutDate,
+                customerId,
+                roomId,
+                paymentId);
     }
 
     @Transactional

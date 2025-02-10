@@ -30,12 +30,15 @@ public class PaymentsRepository {
     private JdbcTemplate jdbcTemplate;
 
     @Transactional
-    public void addPayments(Long amount, Date paymentDate, String paymentMethod) {
+    public Long addPayments(Long amount, Date paymentDate, String paymentMethod) {
         String sql = "INSERT INTO payments (amount, paymentDate,paymentMethod) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql,
                 amount,
                 paymentDate,
                 paymentMethod);
+
+        String lastInsertIdQuery = "SELECT LAST_INSERT_ID()";
+        return jdbcTemplate.queryForObject(lastInsertIdQuery, Long.class);
     }
 
     @Transactional
